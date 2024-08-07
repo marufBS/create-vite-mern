@@ -1,8 +1,10 @@
 {
   "name": "create-vite-mern",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create project with React, Vite, Redux, Next UI, Express and MongoDB",
-  "bin":"./bin/cli.js",
+  "bin": {
+    "create-vite-mern": "./bin/cli.js"
+  },
   "type":"module",
   "scripts": {
     "dev": "nodemon src/server/main.js -w src/server",
