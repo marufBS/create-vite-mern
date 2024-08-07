@@ -1,8 +1,9 @@
 {
   "name": "create-vite-mern",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "1.0.0",
+  "description": "Create project with React, Vite, Redux, Next UI, Express and MongoDB",
+  "bin":"./bin/cli.js",
+  "type":"module",
   "scripts": {
     "dev": "nodemon src/server/main.js -w src/server",
     "start": "cross-env NODE_ENV=production node src/server/main.js",
