@@ -1,26 +1,13 @@
-const {execSync} = require('child_process')
+#!/usr/bin/env node
 
-const runCommand = command => {
-    try {
-        execSync(`${command}`,{stdio:'inherit'})
-    } catch (e) {
-        console.error(`Failed to execute ${command}`, e)
-        return false
-    }
-    return true
-}
+import { program } from "commander";
 
-const repoName = process.argv[2]
-const gitCheckoutCommand = `git clone --depth 1 https://github.com/marufBS/create-vite-mern ${repoName}`
-const installDepsCommand = `cd ${repoName} && npm install`
+program
+  .version("1.0.0")
+  .description("My Node CLI")
+  .option("-n, --name <type>", "Add your name")
+  .action((options) => {
+    console.log(`Hey, ${options.name}!`);
+  });
 
-console.log(`Creating project with name ${repoName}`)
-const checkOut = runCommand(gitCheckoutCommand)
-if(!checkOut) process.exit(-1)
-
-console.log(`Installing dependencies for ${repoName}`)
-const installedDeps = runCommand(installDepsCommand)
-if(!installedDeps) process.exit(-1)
-
-console.log("Congratulations! You are ready to Deploy")
-console.log(`cd ${repoName} && npm run dev`)
+program.parse(process.argv);
