@@ -15,7 +15,7 @@ const rl = readline.createInterface({
 
 const args = process.argv.slice(2);
 
-async function fetchRepo() {
+async function fetchRepo(outputPath) {
     try {
         // Step 1: Download the ZIP file
         const response = await axios({
@@ -52,7 +52,7 @@ function createProject(projectName) {
     } else {
         fs.mkdirSync(projectPath);
         console.log('Project setup complete.');
-        fetchRepo()
+        fetchRepo(projectName)
     }
 
 
